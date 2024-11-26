@@ -5,7 +5,14 @@ return {
     event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
+  -- leap
+  {
+    "ggandor/leap.nvim",
+    init = function()
+      require("leap").add_default_mappings()
+    end,
+    lazy = false,
+  },
  -- auto close tag
   {
     "windwp/nvim-ts-autotag",
