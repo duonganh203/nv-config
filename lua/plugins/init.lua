@@ -2,18 +2,11 @@ local lazy = require "lazy"
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
-  {
-    "nvimtools/none-ls.nvim",
-    event = "VeryLazy",
-    opts = function ()
-      return require "configs.null-ls"
-    end,
-  },
-  -- auto close tag
+ -- auto close tag
   {
     "windwp/nvim-ts-autotag",
     ft = {"javascript", "javascriptreact", "typescript", "typescriptreact"},
