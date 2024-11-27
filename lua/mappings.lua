@@ -23,7 +23,6 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
 
 --leap
-map("n", "s", "<Plug>(leap)")
-map("n", "gs", "<Plug>(leap-from-window)")
-map({ "x", "o" }, "s", "<Plug>(leap-forward)")
+map("n", "gs", "<Plug>(leap)")
+map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
