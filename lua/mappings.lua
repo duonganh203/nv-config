@@ -21,8 +21,17 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 
 -- rustaceanvim
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
-
+-- TODO: Add more mappings here
 --leap
 map("n", "gs", "<Plug>(leap)")
 map({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
 map({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
+-- TODO: Add more mappings here
+-- todo-comments
+map("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+map("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
