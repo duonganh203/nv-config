@@ -35,3 +35,9 @@ end, { desc = "Next todo comment" })
 map("n", "[t", function()
   require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
+
+map("n", "<Leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todo comment" })
+
+-- keymap for saving session
+map("n", "<Leader>wo", "<cmd>SessionRestore<CR>", { desc = "Restore Session for cwd" })
+map("n", "<Leader>ws", "<cmd>SessionSave<CR>", { desc = "Save Session for cwd" })

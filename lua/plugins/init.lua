@@ -11,7 +11,6 @@ return {
     init = function()
       require("leap").add_default_mappings()
     end,
-    lazy = false,
   },
   -- auto close tag
   {
@@ -34,9 +33,14 @@ return {
       },
     },
   },
+  {
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    event = { "BufRead", "BufNewFile" },
     config = function()
       require "configs.lspconfig"
     end,
@@ -91,9 +95,22 @@ return {
       end
     end,
   },
-  -- todo-comments
+  -- nvim session
+  {
+    "rmagatti/auto-session",
+    lazy = false,
+    config = function()
+      local auto_session = require "auto-session"
+
+      auto_session.setup {
+        auto_restore_enabled = false,
+        auto_session_suppress_dirs = { "~/" },
+      }
+    end,
+  },
   {
     "folke/todo-comments.nvim",
+    event = { "BufRead", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       -- your configuration comes here
@@ -101,7 +118,6 @@ return {
       -- refer to the configuration section below
       opts = require "configs.todo-comments",
     },
-    lazy = false,
   },
   {
     "rcarriga/nvim-dap-ui",
